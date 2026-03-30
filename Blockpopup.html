@@ -66,6 +66,17 @@
         }
     });
 </script>
+<script>
+        // Chặn chuột phải
+        document.addEventListener('contextmenu', event => event.preventDefault());
 
+        // Chặn phím tắt
+        document.onkeydown = function(e) {
+            if (e.keyCode == 123 || (e.ctrlKey && (e.shiftKey && 'I'.includes(e.key.toUpperCase()) || e.key.toUpperCase() == 'U'))) {
+                alert("Không thể xem mã nguồn!");
+                return false;
+            }
+        };
+    </script>
 </body>
 </html>
