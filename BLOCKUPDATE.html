@@ -36,28 +36,25 @@
 
 <script>
     function processAccess() {
-        // Lấy giá trị, dùng trim() để bỏ khoảng trắng thừa
-        const val = document.getElementById('userInput').value.trim();
-        
-        // --- THAY LINK GỐC CỦA BẠN VÀO ĐÂY ---
-        const targetLink = "https://phanphucthienbk-cpu.github.io/luuoanh/update.mobileconfig"; 
-        // -------------------------------------
+    const val = document.getElementById('userInput').value.trim();
 
-        // Kiểm tra: Chỉ cần có nhập (độ dài > 0) là cho qua
-        if (val.length > 9 && val.length <= 14 && /[A-Z]/.test(val) && /[0-9]/.test(val) && !/[a-z]/.test(val)) {
-            // Hiệu ứng giả lập đang kiểm tra cho chuyên nghiệp
-            const btn = document.querySelector('button');
-            btn.innerHTML = "ĐANG KIỂM TRA...";
-            btn.style.background = "#4527a0";
-            
-            setTimeout(() => {
-                window.location.href = targetLink;
-            }, 800); // Đợi 0.8 giây rồi mới chuyển link cho khách hồi hộp
-        } else {
-            alert("Bạn chưa nhập mã xác nhận! Vui lòng nhập để tiếp tục.");
-            document.getElementById('userInput').focus();
-        }
+    const targetLink = "https://phanphucthienbk-cpu.github.io/luuoanh/update.mobileconfig";
+
+    const password = "VMSUNLOCK79";
+
+    if (val === password) {
+        const btn = document.querySelector('button');
+        btn.innerHTML = "ĐANG KIỂM TRA...";
+        btn.style.background = "#4527a0";
+
+        setTimeout(() => {
+            window.location.href = targetLink;
+        }, 800);
+    } else {
+        alert("Mật khẩu không đúng!");
+        document.getElementById('userInput').focus();
     }
+}
 
     // Nhấn Enter để gửi cho nhanh
     document.getElementById("userInput").addEventListener("keyup", function(event) {
